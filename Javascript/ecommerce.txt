@@ -1,0 +1,40 @@
+<script>
+        $('.js-add-to-wishlist').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-add-to-cart').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-add-to-wishlist').each(function () {
+            var productName = $(this).parent().parent().find('.js-name').html();
+            var productPrice = $(this).parent().parent().find('.js-price').html();
+            $(this).on('click', function () {
+                Swal.fire({
+                    icon: 'success',
+                    html: '<p><img src="assets/images/icons/title.png" width="200"></p> <br> <b>'
+                        + productName + '<br>'
+                        + productPrice + '</b> <br>'
+                        + 'is added to wishlist.'
+                });
+                $(this).addClass('js-added-to-wishlist');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-add-to-cart').each(function () {
+            var productName = $(this).parent().find('.js-name').html();
+            var productPrice = $(this).parent().parent().find('.js-price').html();
+            $(this).on('click', function () {
+                Swal.fire({
+                    icon: 'success',
+                    html: '<p><img src="assets/images/icons/title.png" width="200"></p> <br> <b>'
+                        + productName + '<br>'
+                        + productPrice + '</b> <br>'
+                        + 'is added to cart.'
+                });
+                $(this).off('click');
+            });
+        });
+    </script>

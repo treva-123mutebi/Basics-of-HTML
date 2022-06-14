@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>auto fill input</title>
+<body>
+    <div>
+        <input type="text" id="field1" name="field1" value="">
+        <input type="text" id="field2" name="field2" value="">
+        <br><br>
+        <input type="text" id="result" name="result" value="">
+    </div>
+
+    <p>calculations</p>
+
+    <div>
+
+        <div>
+            <label>Royalty Plan</label>
+            <select class="form-control" name="royaltyplan" id="royaltyplan" required>
+                <option>Select</option>
+                <option value="70% and 65% - $2 to $4.15">70% and 65% - $2 to $4.15</option>
+                <option value="55% and 51% - $4.16 to 5.49">55% and 51% - $4.16 to 5.49</option>
+                <option value="45% and 42% - $5.50 to $6">45% and 42% - $5.50 to $6</option>
+                <option value="35% and 33% - $0.99 to $200">35% and 33% - $0.99 to $200</option>
+            </select>
+        </div>
+        <input type="text" id="bookprice" name="bookprice" value="">
+
+        <br>
+        <input type="text" id="bookearning" name="bookearning" value="">
+    </div>
+
+    <script src="jquery-3.6.0.min.js"></script>
+	
+    <script>
+        $("#field1, #field2").keyup(function () {
+            update();
+        });
+
+        function update() {
+            $("#result").val($('#field1').val() + " " + $('#field2').val());
+        }
+    </script>
+
+    <script>
+        $("#royaltyplan, #bookprice").keyup(function () {
+            update();
+        });
+
+        function update() {
+            var royaltyplan = document.getElementById('royaltyplan').value;
+            var bookprice = document.getElementById('bookprice').value;
+
+            if (royaltyplan == "70% and 65% - $2 to $4.15") {
+                var bookearning = Math.round(70 / 100 * bookprice);
+                $("#bookearning").val(bookearning);
+            }
+            if (royaltyplan == "55% and 51% - $4.16 to 5.49") {
+                var bookearning = Math.round(55 / 100 * bookprice);
+                $("#bookearning").val(bookearning);
+            }
+            if (royaltyplan == "45% and 42% - $5.50 to $6") {
+                var bookearning = Math.round(45 / 100 * bookprice);
+                $("#bookearning").val(bookearning);
+            }
+            if (royaltyplan == "35% and 33% - $0.99 to $200") {
+                var bookearning = Math.round(35 / 100 * bookprice);
+                $("#bookearning").val(bookearning);
+            }
+        }
+    </script>
+
+</body>
+</html>

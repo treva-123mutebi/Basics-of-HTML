@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	margin:0px;
+	padding:0px;
+	font-family:Arial "Arial Black", Gadget, sans-serif;
+}
+#sidebar{position:fixed; width:200px; height:100px; background-color:green; left:200px; transition:all 500ms linear;}
+#sidebar active{left:0px}
+#sidebar ul li{list-style:none; padding:15px 10px; border-bottom:1px solid rgba(100,100,100,0.3)}
+#sidebar ,toggle-btn{position:absolute; left:230px; top:20px;}
+#sidebar ,toggle-btn span{display:block; width:30px; height:5px; background-color:red; margin:3px 0px;}
+
